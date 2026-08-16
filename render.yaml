@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: worldview-immersive
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: VITE_CESIUM_ION_TOKEN
+        sync: false
